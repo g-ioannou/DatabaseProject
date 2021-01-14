@@ -1,0 +1,135 @@
+body {
+   background-color: #828282;
+}
+
+input {
+   margin-top: 5px;
+   border: 1px #828282 solid;
+   border-radius: 5px;
+}
+
+.btn {
+   margin: 0px;
+   width: 100%;
+   border: none;
+   border-radius: 0px;
+}
+
+.btn:active {
+   border: none;
+}
+
+.btn:hover {
+   background: white;
+   color: #212529;
+}
+
+.login-nav {
+   padding: 0px;
+}
+
+.register-nav {
+   padding: 0px;
+}
+
+.login-nav-btn {
+   border-top-left-radius: 10px;
+}
+
+.register-nav-btn {
+   border-top-right-radius: 10px;
+}
+
+.content {
+   background: white;
+   color: #212529;
+}
+
+#icon {
+   text-align: end;
+   font-size: x-large;
+}
+
+.btn:focus,
+.btn:active {
+   outline: none !important;
+   box-shadow: none;
+}
+
+.input-group:focus,
+.input-group:active {
+   outline: none;
+}
+
+.real-login {
+   border: 1px #212529 solid;
+   border-radius: 5px;
+}
+
+.real-register {
+   border: 1px #212529 solid;
+   border-radius: 5px;
+}
+
+.real-login:focus,
+.real-login:active {
+}
+
+.content {
+   border-bottom-left-radius: 5px;
+   border-bottom-right-radius: 5px;
+}
+
+.dropdown {
+   position: relative;
+   display: inline-block;
+}
+
+.dropdown-content {
+   width: 100%;
+   display: none;
+   position: absolute;
+   background-color: #f9f9f9;
+   min-width: 160px;
+   box-shadow: 0px 8px 16px 0px #212529;
+
+   border-radius: 5px;
+   z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+   display: block;
+   cursor: pointer;
+}
+
+.dropdown {
+   border: 1px #828282 solid;
+   border-radius: 5px;
+   width: 100%;
+   text-align: center;
+   margin-top: 5px;
+}
+
+.list-btn {
+   color: #212529;
+   background: #f9f9f9;
+}
+
+.list-btn:hover {
+   color: #f9f9f9;
+   background: #212529;
+}
+
+#admin {
+   border-bottom-right-radius: 5px;
+   border-bottom-left-radius: 5px;
+}
+
+#manager {
+   border-top-right-radius: 5px;
+   border-top-left-radius: 5px;
+}
+
+#registration-error {
+   color: red !important;
+}

@@ -1,11 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <!-- Bootstrap CSS -->
+      <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+         crossorigin="anonymous"
+      />
+      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.1/css/all.css" type="text/css" />
+      <link rel="stylesheet" href="style.css" type="text/css" />
+      <title>Hello, world!</title>
+   </head>
+   <body>
+      <script
+         src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+         crossorigin="anonymous"
+      ></script>
+
+      <br />
+      <br />
+      <br />
+      <div class="row justify-content-center">
+         <div class="col-md-2 login-nav"><button id="login-btn" type="button" class="btn btn-dark login-nav-btn">Login</button></div>
+         <div class="col-md-2 register-nav"><button id="register-btn" type="button" class="btn btn-dark register-nav-btn">Register</button></div>
+      </div>
+      <div class="row justify-content-center">
+         <div class="login-content col-sm-4 content">
+            <br />
+            <div class="row">
+               <div id="icon" class="col-md-3"><i class="fas fa-user"></i></div>
+               <div class="col-sm-7"><input id="username-input" class="input-group-login mb-2" type="text" placeholder="Username" /></div>
+            </div>
+
+            <div class="row">
+               <div id="icon" class="col-md-3"><i class="fas fa-unlock-alt"></i></div>
+               <div class="col-sm-7"><input id="password-input" class="input-group-login mb-2" type="password" placeholder="Password" /></div>
+            </div>
+
+            <br />
+            <div class="row justify-content-center">
+               <div class="col-md-8"><button type="button" class="btn btn-dark real-login">Login</button></div>
+            </div>
+            <br />
+            <div id="login-error"></div>
+            <br />
+         </div>
+         <div class="col-sm-4 content register-content">
+            <br />
+            <div class="row">
+               <div id="icon" class="col-md-3"><i class="fas fa-signature"></i></div>
+               <div class="col-sm-7"><input id="name" class="input-group mb-2" type="text" placeholder="Enter your name" /></div>
+            </div>
+            <div class="row">
+               <div id="icon" class="col-md-3"></div>
+               <div class="col-sm-7"><input id="surname" class="input-group mb-2" type="text" placeholder="Enter your surname" /></div>
+            </div>
+            <div class="row">
+               <div id="icon" class="col-md-3"><i class="fas fa-at"></i></div>
+               <div class="col-sm-7"><input id="email" class="input-group mb-2" type="text" placeholder="Enter your email" /></div>
+            </div>
+            <div class="row">
+               <div id="icon" class="col-md-3"><i class="fas fa-user"></i></div>
+               <div class="col-sm-7"><input id="new-username" class="input-group mb-2" type="text" placeholder="Enter a username" /></div>
+            </div>
+            <div class="row">
+               <div id="icon" class="col-md-3"><i class="fas fa-key-skeleton"></i></div>
+               <div class="col-sm-7"><input id="new-password" class="input-group mb-2" type="password" placeholder="Enter a password" /></div>
+            </div>
+
+            <div class="row">
+               <div id="icon" class="col-md-3"><i class="fas fa-address-card"></i></div>
+               <div class="col-sm-7">
+                  <div class="dropdown input-group">
+                     <div id="position"></div>
+                     <div id="chooser">Position <i class="fas fa-caret-down"></i></div>
+                     <div class="dropdown-content">
+                        <button id="manager" type="button" class="btn btn-dark list-btn">Manager</button>
+                        <button id="evaluator" type="button" class="btn btn-dark list-btn">Evaluator</button>
+                        <button id="employee" type="button" class="btn btn-dark list-btn">Employee</button>
+                        <button id="admin" type="button" class="btn btn-dark list-btn">Admin</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <br />
+            <div class="row justify-content-center">
+               <div class="col-md-8"><button type="button" class="btn btn-dark real-register">Register</button></div>
+            </div>
+            <br />
+            <div id="registration-error" class="col-sm-7"></div>
+            <br />
+         </div>
+      </div>
+   </body>
+   <script src="style.js"></script>
+   <script src="scripts.js"></script>
 </html>
