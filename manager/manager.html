@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<!-- Bootstrap CSS -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.1/css/all.css" type="text/css" />
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<title>Manager</title>
+	</head>
+
+	<body>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+			crossorigin="anonymous"
+        ></script>
+        <div class="row justify-content-center">
+            <div class="col-md-4 welcome-msg welcome">Welcome<i class="fal fa-user-tie manager-icon"></i> <span class=" welcome-msg username"></i></span></div>
+		    
+        </div>
+
+        <div class="first-time">
+            <div class="row justify-content-center message-2">
+                We noticed it's your first time loggin in... 
+                <br>
+                Please give us some information about you.
+            </div>
+            <br>
+             <div class="row justify-content-center">
+                <div class="col-md-4 info-box">
+                    
+                    <div class="row company-info">
+                        <div class="col-md-5 company-msg">You work for:</div>
+                        <div class="col-md-7 company-selector"> 
+                            <div class="dropdown input-group">
+                                <div id="chooser">company <i class="fas fa-caret-down"></i></div>
+                                <div class="dropdown-content">
+                                    <button id="company1" type="button" class="btn  list-btn">company1</button>
+                                    <button id="company2" type="button" class="btn  list-btn">company2</button>
+                                    <button id="company3" type="button" class="btn  list-btn">company3</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="row experience-info">
+                        <div class="col-md-5">Experience: </div>
+                        <div class="col-md-2"><input type="text"/></div>
+                    </div>      
+                            
+                 </div>
+            </div>
+        </div>
+            
+
+        </div>
+
+        <div class="main" hidden>
+
+        </div>
+
+		
+	</body>
+	<script src="style.js"></script>
+	<script src="scripts.js"></script>
+</html>

@@ -1,7 +1,17 @@
 <?php
 
+session_start();
 include_once 'connect.php';
+$user_values = json_encode($_POST['user_values']);
+$data  = json_decode($user_values);
 
-global $con;
+$sql = mysqli_query($con, "SELECT * FROM system_user WHERE username = '$data->username' AND password ='$data->password' ");
+$query_rows = mysqli_num_rows($sql);
+$row = mysqli_fetch_array($sql);
 
-echo "kalispera";
+if ($query_rows == 1) {
+    $_SESSION['username'] = $row['username'];
+    echo $row['user_type'];
+} else {
+    echo 'fail';
+}
