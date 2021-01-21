@@ -1,3 +1,9 @@
+-- ----------------------------------------------
+-- ------------------TRIGGERS ------------------
+-- ---------------------------------------------
+
+-- -----------------MY TRIGGERS----------------- --
+DROP TRIGGER IF EXISTS categorize_user
 DELIMITER $
 CREATE TRIGGER categorize_user
 AFTER INSERT
@@ -15,6 +21,5 @@ BEGIN
     IF (NEW.user_type= 'Employee') THEN
         INSERT INTO employee(username) VALUES (NEW.username);
     END IF;
-
 END$
 

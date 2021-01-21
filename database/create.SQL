@@ -3,7 +3,7 @@
 -- ΕΠΩΝΥΜΟ: ΙΩΑΝΝΟΥ
 -- ΑΜ:1056280
 -- ΕΤΟΣ: 5ο
------------------------
+-- ---------------------
 
 
 -- ---------------------------------------------- --
@@ -24,6 +24,7 @@ CREATE TABLE system_user (
     email VARCHAR(30) NOT NULL,
     reg_date DATETIME DEFAULT CURRENT_TIMESTAMP(),
     user_type VARCHAR(10) NOT NULL,
+    timesLoggedIn BIGINT DEFAULT '0',
     PRIMARY KEY (username)
 )ENGINE=INNODB;
 
@@ -169,25 +170,28 @@ CREATE TABLE languages(
 )ENGINE=INNODB;
 
 
--- ------------------------------------ --
--- --------------PROCEDURES ----------- --
--- ------------------------------------ --
 
 
-DROP PROCEDURE IF EXISTS add_user;
-DELIMITER $
-CREATE PROCEDURE add_user
-(IN inpUsername VARCHAR(12), IN inpPassword VARCHAR(10), IN inpName VARCHAR(25), IN inpSurname VARCHAR(35), IN inpEmail VARCHAR(30), IN inpUser_type VARCHAR(10))
-BEGIN
-	INSERT INTO system_user (username,password,name,surname,email,user_type)
-    VALUES (inpUsername, inpPassword,inpName,inpSurname,inpEmail,inpUser_type);
-END$
+
+-- ----------------------------------------------------- --
+-- -----------------------INSERT------------------------ --
+-- ----------------------------------------------------- --
+
+-- -------------------COMPANY INSERT-------------------- --
+INSERT INTO `company` (`AFM`, `DOY`, `name`, `phone`, `street`, `num`, `city`, `country`) 
+VALUES 
+('PPOAFKLOL', 'Xalandriou', 'Mpananofloudes A.E.', '697926566', 'Mesogeion', '23', 'Xalandri', 'Greece'),
+('234AAGG36','Pallinis', 'Odontoglifides A.E.', '212301230', 'Aiolou','12','Pallini', 'Greece'),
+('OMGKAI3LO', 'Elefsinas', 'Vazeliakos' ,'555555','Roulas', '33', 'Saronikou','Greece'),
+('BURYRDUM', 'EKSOTERIKO','TurkLoukoum' , '534552341', 'Mpriki', '55', 'Baklesi', 'Turkey');
 
 
--- ------------------------------------- --
--- ----------------TRIGGERS------------- --
--- ------------------------------------- --
+-- --------------------------------------------- --
+-- ------------------TRIGGERS ------------------ --
+-- --------------------------------------------- --
 
+-- -----------------MY TRIGGERS-------------------
+DROP TRIGGER IF EXISTS categorize_user
 DELIMITER $
 CREATE TRIGGER categorize_user
 AFTER INSERT
@@ -205,5 +209,71 @@ BEGIN
     IF (NEW.user_type= 'Employee') THEN
         INSERT INTO employee(username) VALUES (NEW.username);
     END IF;
+END$
 
+-- --------------------------------------------- --
+-- ---------------PROCEDURES-------------------- --
+-- --------------------------------------------- --
+
+DROP PROCEDURE IF EXISTS add_user;
+DELIMITER $
+CREATE PROCEDURE add_user
+(IN inpUsername VARCHAR(12), IN inpPassword VARCHAR(10), IN inpName VARCHAR(25), IN inpSurname VARCHAR(35), IN inpEmail VARCHAR(30), IN inpUser_type VARCHAR(10))
+BEGIN
+ 	
+        INSERT INTO system_user (username,password,name,surname,email,user_type)
+        VALUES (inpUsername, inpPassword,inpName,inpSurname,inpEmail,inpUser_type);
+   
+END$
+DELIMITER ;
+
+
+
+DROP PROCEDURE IF EXISTS identify_user;
+DELIMITER $
+CREATE PROCEDURE identify_user 
+(IN inpUsername VARCHAR(12), IN inpPassword VARCHAR(10))
+BEGIN
+    SELECT * FROM system_user WHERE username = inpUsername AND password = inpPassword;
+END$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS show_companies;
+DELIMITER $
+CREATE PROCEDURE show_companies() 
+BEGIN 
+    SELECT * FROM company ORDER BY name; 
+END$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS manager_info;
+DELIMITER $
+CREATE PROCEDURE manager_info
+(IN username VARCHAR(12), IN managerCompany VARCHAR(35), IN managerExperience TINYINT(4))
+BEGIN
+    UPDATE manager SET exp_years = managerExperience
+    WHERE managerUsername = username;
+    
+	SET @companyAFM = (SELECT AFM FROM company
+    WHERE name = managerCompany);
+    
+    UPDATE manager SET firm = @companyAFM 
+    WHERE  managerUsername = username;
+END $
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS get_user;
+DELIMITER $
+CREATE PROCEDURE get_user (IN user VARCHAR(12))
+BEGIN   
+    SELECT * FROM system_user WHERE user = username;
+END$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS increment_login;
+DELIMITER $
+CREATE PROCEDURE increment_login(IN user VARCHAR(12))
+BEGIN
+    SELECT timesLoggedIn FROM system_user WHERE username= user;
+    UPDATE system_user SET timesLoggedIn = timesLoggedIn +1 WHERE username = user;
 END$

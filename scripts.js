@@ -24,6 +24,7 @@ $(".real-login").click(function (e) {
 			url: "login.php",
 			data: { user_values },
 			success: function (response) {
+				console.log(response);
 				if (response == "fail") {
 					$("#login-error").empty();
 					$(".input-group-login").css("border", "1px red solid");
@@ -36,7 +37,7 @@ $(".real-login").click(function (e) {
 				}
 			},
 			error: function (error) {
-				console.log("no user found");
+				console.log(error);
 			},
 		});
 	} else {
@@ -70,20 +71,36 @@ $(".real-register").click(function (e) {
 		$("#registration-error").empty();
 		$(".input-group").css("border", "1px #828282 solid");
 		let data = JSON.stringify(user_values);
+
 		$.ajax({
 			type: "POST",
-			url: "add_user.php",
-
+			url: "get_user.php",
 			data: { user_values },
 			success: function (response) {
-				$("#registration-msg").empty();
-				$(".input-group").css("border", "1px green solid");
-				errorMessage = "User " + user_values["username"] + " added!";
-				$("#registration-msg").css("color", "green");
-				$("#registration-msg").append(errorMessage);
+				console.log(response);
+				if (response == "exists") {
+					$("#registration-msg").empty();
+					$(".input-group").css("border", "1px red solid");
+					errorMessage = "User already exists.";
+					$("#registration-msg").css("color", "red");
+					$("#registration-msg").append(errorMessage);
+				} else {
+					$.ajax({
+						type: "POST",
+						url: "add_user.php",
+						data: { user_values },
+						success: function (response) {
+							$("#registration-msg").empty();
+							$(".input-group").css("border", "1px green solid");
+							errorMessage = "User " + user_values["username"] + " added!";
+							$("#registration-msg").css("color", "green");
+							$("#registration-msg").append(errorMessage);
+						},
+					});
+				}
 			},
 			error: function (error) {
-				alert(error);
+				console.log(error);
 			},
 		});
 	} else {

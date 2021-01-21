@@ -62,7 +62,7 @@ row {
 }
 
 .dropdown-content {
-	width: 100%;
+	width: 150%;
 	display: none;
 	position: absolute;
 	background-color: #f9f9f9;
@@ -101,4 +101,33 @@ row {
 
 .company-selector{
     padding:0px;
+}
+
+.experience-msg{
+	padding-left: 0px ;
+}
+
+.experience-input {
+	padding-left:0px;
+}
+
+.continue-to-main{
+	color: white;
+	background: #0c0e0f;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.continue-to-main:hover{
+	color: #0c0e0f;
+	background: #828282;
+	
+}
+
+.first-time-msg{
+	color: red;
+}
+
+#real-input-years{
+	border-radius: 5px;
 }
