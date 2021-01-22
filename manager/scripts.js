@@ -12,7 +12,7 @@ $.ajax({
 	type: "POST",
 	url: "../get_loggin_times.php",
 	success: function (response) {
-		console.log(response);
+		
 		if (response == '0') {
 			$.ajax({
 				type: "GET",
@@ -65,16 +65,55 @@ $.ajax({
 					$.ajax({
 						type: "POST",
 						url: "manager-info-post.php",
-
 						data: { managerInfo },
 						success: function (response) {
-							console.log(response);
+							$('.first-time').hide();
+							$('.main').removeAttr('hidden');
+							$.ajax({
+								type: "POST",
+								url: "../get-company.php",
+								dataType: "json",
+								success: function (response) {
+									$('#info-c').append(response[0].name);
+									$('#info-d').append(response[0].DOY);
+								}
+							});
 						},
+					});
+
+					$.ajax({
+						type: "POST",
+						url: "../get_email.php",
+						dataType: "dataType",
+						success: function (response) {
+							console.log(response);
+						}
 					});
 				}
 			});
 		} else {
 			$('.first-time').hide();
+			$.ajax({
+				type: "POST",
+				url: "../get_company.php",
+				dataType: "json",
+				success: function (response) {
+					$('#info-c').append(response[0].name);
+					$('#info-d').append(response[0].DOY);
+				}
+			});
+			
+			
+			$.ajax({
+				type: "POST",
+				url: "../get_email.php",
+				
+				success: function (response) {
+					$('.email').append(response);
+				}
+			});
+			$('.main').removeAttr('hidden');
+
 		}
 	},error: function (error){
 		console.log(error);

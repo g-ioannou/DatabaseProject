@@ -16,6 +16,7 @@ input {
 
 .welcome {
 	text-align: center;
+	
 }
 
 row {
@@ -28,6 +29,10 @@ row {
 
 .username {
 	padding-left: 5px;
+	color: #ff0d86;
+}
+
+.info {
 	color: #ff0d86;
 }
 .manager-icon {
@@ -92,42 +97,105 @@ row {
 }
 
 .company-info {
-   margin: 10px;
+	margin: 10px;
 }
 
 .experience-info {
-    margin: 10px;
- }
-
-.company-selector{
-    padding:0px;
+	margin: 10px;
 }
 
-.experience-msg{
-	padding-left: 0px ;
+.company-selector {
+	padding: 0px;
+}
+
+.experience-msg {
+	padding-left: 0px;
 }
 
 .experience-input {
-	padding-left:0px;
+	padding-left: 0px;
 }
 
-.continue-to-main{
+.continue-to-main {
 	color: white;
 	background: #0c0e0f;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
 
-.continue-to-main:hover{
+.continue-to-main:hover {
 	color: #0c0e0f;
 	background: #828282;
-	
 }
 
-.first-time-msg{
+.first-time-msg {
 	color: red;
 }
 
-#real-input-years{
+#real-input-years {
 	border-radius: 5px;
+}
+
+.company-info-area {
+	padding-bottom: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	float: right;
+	background: white;
+	color: #0c0e0f;
+}
+
+.edit-btn {
+	padding: 0px;
+	width:60%;
+	padding-left: 40%;
+}
+
+.main-btn {
+	padding: 0px;
+	border: 1px #0c0e0f solid;
+	border-radius: 5px;
+	
+}
+
+.main-btn:hover {
+	background: #0c0e0f;
+	color: #ff0d86;
+}
+
+.manager-info-area {
+	padding-bottom: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	float: right;
+	background: white;
+	color: #0c0e0f;
+}
+
+.edit-company{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.edit-company-info{
+	margin-top: 100px;
+	border-radius: 10px;
+	background-color: white;
+	 color: #0c0e0f;
+	 
+}
+
+.edit-company-input{
+	color: #ff0d86;
+}
+
+.edit-icon{
+	margin-top: 10px;
+}
+
+#cancel-company-edit{
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }

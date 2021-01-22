@@ -76,9 +76,10 @@ $(".real-register").click(function (e) {
 			type: "POST",
 			url: "get_user.php",
 			data: { user_values },
+			
 			success: function (response) {
 				console.log(response);
-				if (response == "exists") {
+				if (response == 'exists') {
 					$("#registration-msg").empty();
 					$(".input-group").css("border", "1px red solid");
 					errorMessage = "User already exists.";

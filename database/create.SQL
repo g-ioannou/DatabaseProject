@@ -277,3 +277,63 @@ BEGIN
     SELECT timesLoggedIn FROM system_user WHERE username= user;
     UPDATE system_user SET timesLoggedIn = timesLoggedIn +1 WHERE username = user;
 END$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS get_company;
+DELIMITER $
+CREATE PROCEDURE get_company(IN username VARCHAR(12))
+BEGIN   
+    SET @managerFirm = (SELECT firm FROM manager WHERE username = managerUsername);
+    SELECT * FROM company WHERE AFM = @managerFirm;
+END$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS get_email;
+DELIMITER $
+CREATE PROCEDURE get_company(IN usrnm VARCHAR(12))
+BEGIN   
+    SELECT email FROM system_user WHERE usrnm = username;
+END$
+DELIMITER ;
+
+-- 000000000000000000000000000000000
+DROP PROCEDURE IF EXISTS new_company_phone;
+DELIMITER $
+CREATE PROCEDURE new_company_phone(IN c_name VARCHAR(35),IN new_phone BIGINT(16))
+BEGIN   
+    UPDATE company SET phone = new_phone WHERE c_name =name;
+END$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS new_company_street;
+DELIMITER $
+CREATE PROCEDURE new_company_street(IN c_name VARCHAR(35),IN new_street VARCHAR(15))
+BEGIN   
+    UPDATE company SET street = new_street WHERE c_name =name;
+END$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS new_company_street_num;
+DELIMITER $
+CREATE PROCEDURE new_company_street_num(IN c_name VARCHAR(35),IN new_street_num TINYINT(4))
+BEGIN   
+    UPDATE company SET num = new_street_num WHERE c_name =name;
+END$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS new_company_city;
+DELIMITER $
+CREATE PROCEDURE new_company_city(IN c_name VARCHAR(35),IN new_city VARCHAR(15))
+BEGIN   
+    UPDATE company SET city = new_city WHERE c_name =name;
+END$
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS new_company_country;
+DELIMITER $
+CREATE PROCEDURE new_company_country(IN c_name VARCHAR(35),IN new_country VARCHAR(15))
+BEGIN   
+    UPDATE company SET country = new_country WHERE c_name =name;
+END$
+DELIMITER ;
+
